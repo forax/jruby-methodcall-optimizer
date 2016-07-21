@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="run">
+    
+	<target name="compile">
+	   <mkdir dir="classes"/>
+	   <javac srcdir="src"
+              destdir="classes"
+              classpath="lib/asm-debug-all-5.1.jar"
+	   	      includeantruntime="false"
+              debug="on"/>
+	</target>
+	
+    <target name="run" depends="compile">
+        <java classpath="classes:lib/asm-debug-all-5.1.jar"
+        	  classname="Tool">
+    	 <arg line="classes/Test.class Test.class"/>
+    	</java>
+    </target>
+
+</project>
